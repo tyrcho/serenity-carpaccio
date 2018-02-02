@@ -1,5 +1,11 @@
-## Sample project with cucumber
+## Sample project with cucumber + serenity
 
-Run the tests with 
+Run the tests with: 
     
-    mvn test
+    mvn verify
+    
+    
+It generates the report in: 
+
+    target/site/serenity
+    
