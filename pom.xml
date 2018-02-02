@@ -40,13 +40,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>net.serenity-bdd</groupId>-->
-                        <!--<artifactId>core</artifactId>-->
-                        <!--<version>1.0.19-SNAPSHOT</version>-->
-                    <!--</dependency>-->
-                <!--</dependencies>-->
             </plugin>
         </plugins>
     </build>
