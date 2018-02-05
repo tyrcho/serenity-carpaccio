@@ -6,11 +6,8 @@ import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
 public class Cups {
-    Belly belly = new Belly();
-
     @Steps
     CupSteps steps;
-
 
     @Then("^my belly should growl$")
     public void my_belly_should_growl() throws Exception {
