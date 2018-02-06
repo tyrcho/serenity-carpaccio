@@ -3,7 +3,7 @@ package carpaccio;
 public class Order {
     private int items;
     private float price;
-    private float taxRate = 0.0685F;
+    private String state = "UT";
 
     public Order setItems(int items) {
         this.items = items;
@@ -15,12 +15,17 @@ public class Order {
         return this;
     }
 
+    public Order setState(String state) {
+        this.state = state;
+        return this;
+    }
+
     public String basicPriceFormatted() {
         return formatPrice(basicPrice());
     }
 
     public String taxRateFormatted() {
-        return String.format("%.2f%%", taxRate * 100).replace(",", ".");
+        return String.format("%.2f%%", taxRate() * 100).replace(",", ".");
     }
 
     public String priceWithTaxFormatted() {
@@ -31,8 +36,19 @@ public class Order {
         return formatPrice(taxAmount());
     }
 
+    float taxRate() {
+        switch (state) {
+            case "UT":
+                return 0.0685F;
+            case "NV":
+                return 0.08F;
+            default:
+                throw new IllegalArgumentException("Unknown state: " + state);
+        }
+    }
+
     float taxAmount() {
-        return basicPrice() * taxRate;
+        return basicPrice() * taxRate();
     }
 
     float basicPrice() {

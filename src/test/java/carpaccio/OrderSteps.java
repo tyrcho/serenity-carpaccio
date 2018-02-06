@@ -23,7 +23,12 @@ public class OrderSteps {
 
     @When("^I order (\\d+) items with price (.+\\$) to be delivered in UT$")
     public void i_order_items_with_price_$_to_be_delivered_in_UT(int items, String price) {
-        iOrderItemsWithPrice(items, price);
+        order.setItems(items).setPrice(price);
+    }
+
+    @When("^I order (\\d+) items with price (.+\\$) to be delivered in state (.+)$")
+    public void i_order_items_with_price_$_to_be_delivered_in_state(int items, String price, String state) {
+        order.setItems(items).setPrice(price).setState(state);
     }
 
 
