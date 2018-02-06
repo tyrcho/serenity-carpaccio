@@ -1,9 +1,11 @@
+@issues:SDCOAGTM18-1
 Feature: Order Price
   An Order will compute its final price
 
   Background:
   I have a new, empty Order
 
+  @issues:SDCOAGTM18-6
   Scenario Outline: Compute basic price
     When I order <items> items with price <price>
     Then the order basic price is <basic_price>
@@ -44,6 +46,7 @@ Feature: Order Price
       | 2     | 5$    | 10.00$      | AL    | 4.00%    | 0.40$      | 10.40$         |
       | 2     | 5$    | 10.00$      | CA    | 8.25%    | 0.83$      | 10.83$         |
 
+  @issues:SDCOAGTM18-11
   Scenario Outline: Compute price with tax and discount in different states
     When I order <items> items with price <price> to be delivered in state <state>
     Then the order basic price is <basic_price>
