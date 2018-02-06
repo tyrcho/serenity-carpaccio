@@ -71,7 +71,7 @@ public class Order {
             case "UT":
                 return 0.0685F;
             case "NV":
-                return 0.08F;
+                return 0.09F;
             case "TX":
                 return 0.0625F;
             case "AL":
