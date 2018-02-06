@@ -42,6 +42,12 @@ public class Order {
                 return 0.0685F;
             case "NV":
                 return 0.08F;
+            case "TX":
+                return 0.0625F;
+            case "AL":
+                return 0.04F;
+            case "CA":
+                return 0.0825F;
             default:
                 throw new IllegalArgumentException("Unknown state: " + state);
         }
@@ -65,7 +71,8 @@ public class Order {
     }
 
     String formatPrice(float price) {
-        return String.format("%.2f$", price).replace(",", ".");
+        float rounded = Math.round(price * 100) / 100F;
+        return String.format("%.2f$", rounded).replace(",", ".");
     }
 
 
