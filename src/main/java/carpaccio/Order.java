@@ -25,7 +25,7 @@ public class Order {
     }
 
     public String taxRateFormatted() {
-        return String.format("%.2f%%", taxRate() * 100).replace(",", ".");
+        return formatPercent(taxRate());
     }
 
     public String priceWithTaxFormatted() {
@@ -34,6 +34,32 @@ public class Order {
 
     public String taxAmountFormatted() {
         return formatPrice(taxAmount());
+    }
+
+    public String discountRateFormatted() {
+        return formatPercent(discountRate());
+    }
+
+    public String discountAmountFormatted() {
+        return formatPrice(discountAmount());
+    }
+
+
+    public String discountedPriceFormatted() {
+        return formatPrice(discountedPrice());
+    }
+
+    float discountedPrice() {
+        return basicPrice() - discountAmount();
+    }
+
+    float discountRate() {
+        if (basicPrice() < 1000) return 0;
+        else return 0.03F;
+    }
+
+    float discountAmount() {
+        return discountRate() * basicPrice();
     }
 
     float taxRate() {
@@ -54,7 +80,7 @@ public class Order {
     }
 
     float taxAmount() {
-        return basicPrice() * taxRate();
+        return discountedPrice() * taxRate();
     }
 
     float basicPrice() {
@@ -62,7 +88,7 @@ public class Order {
     }
 
     float priceWithTax() {
-        return basicPrice() + taxAmount();
+        return discountedPrice() + taxAmount();
     }
 
 
@@ -75,5 +101,9 @@ public class Order {
         return String.format("%.2f$", rounded).replace(",", ".");
     }
 
+
+    private String formatPercent(float rate) {
+        return String.format("%.2f%%", rate * 100).replace(",", ".");
+    }
 
 }

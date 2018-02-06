@@ -42,9 +42,25 @@ public class OrderSteps {
         assertThat(order.taxRateFormatted()).isEqualTo(rate);
     }
 
-
     @And("^the tax amount is (.+)$")
     public void theTaxAmountIsTax_amount(String amount) throws Throwable {
         assertThat(order.taxAmountFormatted()).isEqualTo(amount);
+    }
+
+    @And("^the discount rate is (.+)$")
+    public void theDiscountRateIsDiscount_rate(String rate) throws Throwable {
+        assertThat(order.discountRateFormatted()).isEqualTo(rate);
+    }
+
+    @And("^the discount amount is (.+)$")
+    public void theDiscountAmountIsDiscount_amount(String amount) throws Throwable {
+        assertThat(order.discountAmountFormatted()).isEqualTo(amount);
+
+    }
+
+    @And("^the discounted price is (.+)$")
+    public void theDiscountPriceIs_amount(String price) throws Throwable {
+        assertThat(order.discountedPriceFormatted()).isEqualTo(price);
+
     }
 }

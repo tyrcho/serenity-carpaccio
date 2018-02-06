@@ -35,6 +35,7 @@ Feature: Order Price
     And the tax amount is <tax_amount>
     And the price with tax is <price_with_tax>
 
+    # In all the examples we are below the threshold for the discounts
     Examples:
       | items | price | basic_price | state | tax_rate | tax_amount | price_with_tax |
       | 3     | 5$    | 15.00$      | UT    | 6.85%    | 1.03$      | 16.03$         |
@@ -42,3 +43,18 @@ Feature: Order Price
       | 2     | 5$    | 10.00$      | TX    | 6.25%    | 0.63$      | 10.63$         |
       | 2     | 5$    | 10.00$      | AL    | 4.00%    | 0.40$      | 10.40$         |
       | 2     | 5$    | 10.00$      | CA    | 8.25%    | 0.83$      | 10.83$         |
+
+  Scenario Outline: Compute price with tax and discount in different states
+    When I order <items> items with price <price> to be delivered in state <state>
+    Then the order basic price is <basic_price>
+    And the discount rate is <discount_rate>
+    And the discount amount is <discount_amount>
+    And the discounted price is <discounted_price>
+    And the tax rate is <tax_rate>
+    And the tax amount is <tax_amount>
+    And the price with tax is <price_with_tax>
+
+    Examples:
+      | items | price | basic_price | discount_rate | discount_amount | discounted_price | state | tax_rate | tax_amount | price_with_tax |
+      | 3     | 5$    | 15.00$      | 0.00%         | 0.00$           | 15.00$           | UT    | 6.85%    | 1.03$      | 16.03$         |
+      | 20    | 50$   | 1000.00$    | 3.00%         | 30.00$          | 970.00$          | UT    | 6.85%    | 66.45$     | 1036.44$       |
