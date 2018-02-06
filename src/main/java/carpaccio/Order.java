@@ -55,7 +55,11 @@ public class Order {
 
     float discountRate() {
         if (basicPrice() < 1000) return 0;
-        else return 0.03F;
+        else if (basicPrice() < 5000) return 0.03F;
+        else if (basicPrice() < 7000) return 0.05F;
+        else if (basicPrice() < 10000) return 0.07F;
+        else if (basicPrice() < 50000) return 0.10F;
+        else return 0.15F;
     }
 
     float discountAmount() {
