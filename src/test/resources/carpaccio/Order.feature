@@ -1,9 +1,7 @@
 @issues:SDCOAGTM18-1
 Feature: Order Price
-  An Order will compute its final price
 
-  Background:
-  I have a new, empty Order
+  An Order will compute its final price
 
   @issues:SDCOAGTM18-6
   Scenario Outline: Compute basic price

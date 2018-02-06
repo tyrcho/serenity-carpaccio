@@ -1,5 +1,6 @@
 @issues:SDCOAGTM18-30,SDCOAGTM18-31
 Feature: Cups
+
   Optional description of the feature
 
   Background:
