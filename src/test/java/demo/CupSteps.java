@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 
 public class CupSteps {
     Belly belly = new Belly();
-    HomePage homePage;
 
     @Step
     public void my_belly_should_growl() throws Exception {
@@ -22,8 +21,6 @@ public class CupSteps {
     @Step
     public void myBellyShouldNotGrowl() throws Throwable {
         assertFalse(belly.isHungry());
-        homePage.open();
-        homePage.login("hello");
     }
 
     @Step
