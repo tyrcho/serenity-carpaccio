@@ -3,6 +3,7 @@ package carpaccio;
 public class Order {
     private int items;
     private float price;
+    private float taxRate = 0.0685F;
 
     public Order setItems(int items) {
         this.items = items;
@@ -18,21 +19,38 @@ public class Order {
         return formatPrice(basicPrice());
     }
 
-    private float basicPrice() {
+    public String taxRateFormatted() {
+        return String.format("%.2f%%", taxRate * 100).replace(",", ".");
+    }
+
+    public String priceWithTaxFormatted() {
+        return formatPrice(priceWithTax());
+    }
+
+    public String taxAmountFormatted() {
+        return formatPrice(taxAmount());
+    }
+
+    float taxAmount() {
+        return basicPrice() * taxRate;
+    }
+
+    float basicPrice() {
         return items * price;
     }
 
-    public float priceWithTax() {
-        return basicPrice() * 1.0685F;
+    float priceWithTax() {
+        return basicPrice() + taxAmount();
     }
 
 
-    private float parsePrice(String price) {
+    float parsePrice(String price) {
         return Float.parseFloat(price.replaceAll("\\$", ""));
     }
 
-    private String formatPrice(float price){
-        return String.format("%.2f$", price);
+    String formatPrice(float price) {
+        return String.format("%.2f$", price).replace(",", ".");
     }
+
 
 }
