@@ -15,6 +15,6 @@ public class Order {
     }
 
     public int basicPrice() {
-        return 0;
+        return items * price;
     }
 }

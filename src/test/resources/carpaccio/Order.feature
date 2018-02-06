@@ -7,3 +7,7 @@ Feature: Order Price
   Scenario: Compute basic price
     When I order 0 items with price 0$
     Then the order basic price is 0$
+
+  Scenario: Compute basic price 2
+    When I order 5 items with price 3$
+    Then the order basic price is 15$
