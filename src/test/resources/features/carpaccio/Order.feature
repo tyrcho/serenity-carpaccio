@@ -1,9 +1,11 @@
 @issues:SDCOAGTM18-1
+@version:Release-1
 Feature: Order Price
 
   An Order will compute its final price
 
   @issues:SDCOAGTM18-6
+  @version:Sprint-1
   Scenario Outline: Compute basic price
     When I order <items> items with price <price>
     Then the order basic price is <basic_price>
@@ -15,7 +17,7 @@ Feature: Order Price
       | 0     | 5$    | 0.00$       |
       | 3     | 5$    | 15.00$      |
 
-
+  @version:Sprint-1
   Scenario Outline: Compute price with tax in UT
     When I order <items> items with price <price> to be delivered in UT
     Then the order basic price is <basic_price>
@@ -28,6 +30,7 @@ Feature: Order Price
       | 3     | 5$    | 15.00$      | 6.85%    | 1.03$      | 16.03$         |
       | 8     | 1.45$ | 11.60$      | 6.85%    | 0.79$      | 12.39$         |
 
+  @version:Sprint-2
   Scenario Outline: Compute price with tax in different states
     When I order <items> items with price <price> to be delivered in state <state>
     Then the order basic price is <basic_price>
@@ -45,6 +48,7 @@ Feature: Order Price
       | 2     | 5$    | 10.00$      | CA    | 8.25%    | 0.83$      | 10.83$         |
 
   @issues:SDCOAGTM18-11
+  @version:Sprint-3
   Scenario Outline: Compute price with tax and discount in different states
     When I order <items> items with price <price> to be delivered in state <state>
     Then the order basic price is <basic_price>
