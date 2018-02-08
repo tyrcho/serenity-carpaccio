@@ -18,6 +18,7 @@
 
         <serenity.maven.version>1.8.21</serenity.maven.version>
         <serenity.version>1.6.10</serenity.version>
+        <serenity.requirements.version>1.8.0</serenity.requirements.version>
     </properties>
 
     <dependencies>
@@ -48,11 +49,22 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-jira-requirements-provider</artifactId>
+            <version>${serenity.requirements.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-jira-customfield-requirements-provider</artifactId>
+            <version>${serenity.requirements.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.9.0</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -78,6 +90,25 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.serenity-bdd</groupId>
+                        <artifactId>serenity-jira-requirements-provider</artifactId>
+                        <version>${serenity.requirements.version}</version>
+                    </dependency>
+                    <!--<dependency>-->
+                        <!--<groupId>net.serenity-bdd</groupId>-->
+                        <!--<artifactId>serenity-jira-customfield-requirements-provider</artifactId>-->
+                        <!--<version>${serenity.requirements.version}</version>-->
+                    <!--</dependency>-->
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>net.serenity-bdd</groupId>
+                <artifactId>serenity-jira-plugin</artifactId>
+                <version>${serenity.requirements.version}</version>
             </plugin>
         </plugins>
     </build>
