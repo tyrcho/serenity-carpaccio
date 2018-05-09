@@ -1,4 +1,3 @@
-@issues:SDCOAGTM18-1
 @version:Release-1
 Feature: Basic Order Price
 

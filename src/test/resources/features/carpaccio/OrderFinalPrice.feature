@@ -1,4 +1,3 @@
-@issues:SDCOAGTM18-1
 @version:Release-1
 Feature: Order Final Price with taxes and discounts
 
